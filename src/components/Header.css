@@ -1,0 +1,10 @@
+.nav-link:hover { /* Make text bold on hover */
+    font-weight: bolder; /* More bold on hover */
+    /* text-decoration: underline; Add underline on hover */
+    text-decoration-color: #FFFFFF; /* White underline color */
+    color: #FFFFFF; /* Change text color on hover for contrast */
+    padding: 0.5rem 0.75rem; /* Optional: padding for better appearance */
+    border-radius: 0.5rem; 
+    background-color: #FCE4E4;
+
+}

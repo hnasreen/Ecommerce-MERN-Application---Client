@@ -1,25 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
+import Context from './context';
+import { useDispatch } from 'react-redux';
+import { setUserDetails } from './store/userSlice';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  
+  const dispatch = useDispatch()
+  const [cartProductCount,setCartProductCount] = useState(0)
+
+  const fetchUserDetails = async()=>{
+    const res = await axios.get('http://localhost:8080/api/user-details',
+      {
+        header:{"content-type":"application/json"},
+      withCredentials:true})
+
+      console.log("user-details:",res)
+    if(res.data.success){
+      dispatch(setUserDetails(res.data))
+    }
 }
 
-export default App;
+const fetchUserAddToCart = async()=>{
+  
+  const res = await axios.get('http://localhost:8080/api/countAddToCartProduct',
+    {
+      header:{"content-type":"application/json"},
+    withCredentials:true})
+
+  setCartProductCount(res?.data?.data?.count)
+
+  // console.log('addtocartproduct',res?.data?.data?.count)
+}
+
+
+  useEffect(()=>{
+    /**user Details */
+    fetchUserDetails()
+    /**user Details cart product */ 
+    fetchUserAddToCart()
+
+  },[])
+
+  return (
+    <>
+    <Context.Provider value={{
+          fetchUserDetails, // user detail fetch 
+          cartProductCount, // current user add to cart product count,
+          fetchUserAddToCart
+      }}>
+      <ToastContainer
+        position='top-center'
+      />
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+      </Context.Provider>
+    </>
+  )
+}
+
+export default App
