@@ -13,11 +13,15 @@ const App = () => {
   
   const dispatch = useDispatch()
   const [cartProductCount,setCartProductCount] = useState(0)
+  const[token,setToken] =useState(localStorage.getItem('token'))
+  
 
   const fetchUserDetails = async()=>{
+    
     const res = await axios.get('https://ecommerce-mern-application-server.onrender.com/api/user-details',
       {
-        header:{"content-type":"application/json"},
+        header:{"content-type":"application/json",authorization:`Bearer ${token}`},
+        
       withCredentials:true})
 
       console.log("user-details:",res)
@@ -30,7 +34,7 @@ const fetchUserAddToCart = async()=>{
   
   const res = await axios.get('https://ecommerce-mern-application-server.onrender.com/api/countAddToCartProduct',
     {
-      header:{"content-type":"application/json"},
+      header:{"content-type":"application/json",authorization:`Bearer ${token}`},
     withCredentials:true})
 
   setCartProductCount(res?.data?.data?.count)
@@ -52,7 +56,8 @@ const fetchUserAddToCart = async()=>{
     <Context.Provider value={{
           fetchUserDetails, // user detail fetch 
           cartProductCount, // current user add to cart product count,
-          fetchUserAddToCart
+          fetchUserAddToCart,
+          token
       }}>
       <ToastContainer
         position='top-center'

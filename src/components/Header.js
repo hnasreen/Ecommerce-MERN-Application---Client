@@ -17,7 +17,7 @@ const Header = () => {
   // console.log("Header Component - User data: ",user.data.name)
   const dispatch = useDispatch()
   const [menuDisplay, setMenuDisplay] = useState(false)
-  const context = useContext(Context)
+  const {token} = useContext(Context)
   const navigate = useNavigate()
 
   const searchInput = useLocation()
@@ -27,7 +27,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/logout", {
-      header: { "content-type": "application/json" },
+      header: { "content-type": "application/json" , authorization: `Bearer ${token}`},
       withCredentials: true
     })
 

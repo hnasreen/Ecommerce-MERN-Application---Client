@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import moment from 'moment'
 import { MdModeEdit } from "react-icons/md";
 import axios from 'axios';  // Import axios
 import ChangeUserRole from '../components/ChangeUserRole.js';
+import Context from '../context/index.js';
 
 
 const AllUsers = () => {
@@ -15,10 +16,11 @@ const AllUsers = () => {
         role : "",
         _id  : ""
     })
+    const {token}=useContext(Context)
 
     const fetchAllUsers = async() =>{
         const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/all-users", {
-            header: { "content-type": "application/json" },
+            header: { "content-type": "application/json" ,authorization:`Bearer ${token}`},
             withCredentials: true
           })
 

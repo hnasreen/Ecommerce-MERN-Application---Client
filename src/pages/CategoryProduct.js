@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import productCategory from '../Helper/productCategory.js'
 import axios from 'axios'
 import VerticalCard from '../components/VerticalCard.js'
+import Context from '../context/index.js'
 
 
 const CategoryProduct = () => {
@@ -12,6 +13,7 @@ const CategoryProduct = () => {
   const location = useLocation()
   const urlSearch = new URLSearchParams(location.search)
   const urlCategoryListinArray = urlSearch.getAll("category")
+  const {token}= useContext(Context)
 
   const urlCategoryListObject = {}
   urlCategoryListinArray.forEach(el => {
@@ -27,7 +29,7 @@ const CategoryProduct = () => {
 
 
     const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/filter-product", { category: filterCategoryList }, {
-      header: { "content-type": "application/json" },
+      header: { "content-type": "application/json" ,authorization:`Bearer ${token}`},
       withCredentials: true
     })
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CgClose } from "react-icons/cg";
 import productCategory from '../Helper/productCategory.js';
 import { FaCloudUploadAlt } from "react-icons/fa";
@@ -7,6 +7,7 @@ import DisplayImage from '../components/DisplayImage.js';
 import { MdDelete } from "react-icons/md";
 import { toast } from 'react-toastify'
 import axios from 'axios';
+import Context from '../context/index.js';
 
 const AdminEditProduct = ({
     onClose,
@@ -26,6 +27,7 @@ const AdminEditProduct = ({
     })
     const [openFullScreenImage, setOpenFullScreenImage] = useState(false)
     const [fullScreenImage, setFullScreenImage] = useState("")
+    const {token}= useContext(Context)
 
 
     const handleOnChange = (e) => {
@@ -72,7 +74,7 @@ const AdminEditProduct = ({
         e.preventDefault()
 
         const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/update-product", data, {
-            header: { "content-type": "application/json" },
+            header: { "content-type": "application/json",authorization: `Bearer ${token}` },
             withCredentials: true
         })
 

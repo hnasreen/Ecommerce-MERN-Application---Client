@@ -9,10 +9,11 @@ const Cart = () => {
     const [loading, setLoading] = useState(false)
     const context = useContext(Context)
     const loadingCart = new Array(4).fill(null)
+    const {token}=useContext(Context)
 
     const fetchData = async () => {
         const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/view-card-product", {
-            header: { "content-type": "application/json" },
+            header: { "content-type": "application/json" ,authorization:`Bearer ${token}`},
             withCredentials: true
         })
 

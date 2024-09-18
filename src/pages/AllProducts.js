@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import UploadProduct from '../components/UploadProduct.js'
 import axios from 'axios'
 import AdminProductCard from '../components/AdminProductCard.js'
+import Context from '../context/index.js'
+
 
 const AllProducts = () => {
   const [openUploadProduct,setOpenUploadProduct] = useState(false)
   const [allProduct,setAllProduct] = useState([])
+  const {token} = useContext(Context)
 
   const fetchAllProduct = async() =>{
 
     const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/get-product", {
-      header: { "content-type": "application/json" },
+      header: { "content-type": "application/json" ,authorization: `Bearer ${token}`},
       withCredentials: true
     })
 

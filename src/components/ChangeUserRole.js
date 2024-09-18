@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ROLE from '../common/Role.js';
 import { IoMdClose } from "react-icons/io";
 import axios from 'axios';  // Import axios
 import { toast } from 'react-toastify';
+import Context from '../context/index.js'
 
 const ChangeUserRole = ({
     name,
@@ -13,6 +14,7 @@ const ChangeUserRole = ({
     callFunc,
 }) => {
     const [userRole, setUserRole] = useState(role);
+    const {token} = useContext(Context)
 
     const handleOnChangeSelect = (e) => {
         setUserRole(e.target.value);
@@ -21,7 +23,7 @@ const ChangeUserRole = ({
 
     const updateUserRole = async () => {
         const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/update-user", { userId: userId, role: userRole }, {
-            headers: { "content-type": "application/json" },
+            headers: { "content-type": "application/json" , authorization : `Bearer ${token}`},
             withCredentials: true
         });
 

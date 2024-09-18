@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import VerticalCard from '../components/VerticalCard.js'
 import axios from 'axios'
+import Context from '../context/index.js'
 
 const SearchProduct = () => {
     const query = useLocation()
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(false)
+    const {token}= useContext(Context)
 
     console.log("query",query.search)
 
     const fetchProduct = async()=>{
         setLoading(true)
         const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/search"+query.search, {
-            header: { "content-type": "application/json" },
+            header: { "content-type": "application/json",authorization:`Bearer ${token}` },
             withCredentials: true
           })
         setLoading(false)

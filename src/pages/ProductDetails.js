@@ -21,13 +21,13 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true)
   const productImageListLoading = new Array(4).fill(null)
   const [activeImage, setActiveImage] = useState("")
-  const { fetchUserAddToCart } = useContext(Context)
+  const { fetchUserAddToCart ,token} = useContext(Context)
   const navigate = useNavigate()
 
   const fetchProductDetails = async () => {
     setLoading(true)
     const res = await axios.post('https://ecommerce-mern-application-server.onrender.com/api/product-details', { productId: params?.id }, {
-      header: { "content-type": "application/json" },
+      header: { "content-type": "application/json" , authorization:`Bearer ${token}`},
       withCredentials: true
     })
     setLoading(false)

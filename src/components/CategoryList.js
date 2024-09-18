@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Context from '../context/index.js'
 
 const CategoryList = () => {
     const [categoryProduct, setCategoryProduct] = useState([])
     const [loading, setLoading] = useState(false)
-
+    const {token} = useContext(Context)
     const categoryLoading = new Array(13).fill(null)
 
     const fetchCategoryProduct = async () => {
         setLoading(true)
         const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/get-categoryProduct", {
-            header: { "content-type": "application/json" },
+            header: { "content-type": "application/json" ,authorization: `Bearer ${token}`},
             withCredentials: true
         })
         setLoading(false)
