@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import moment from 'moment'
 import { MdModeEdit } from "react-icons/md";
 import axios from 'axios';  // Import axios
-import ChangeUserRole from '../components/ChangeUserRole';
+import ChangeUserRole from '../components/ChangeUserRole.js';
 
 
 const AllUsers = () => {

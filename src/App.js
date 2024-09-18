@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from '../src/components/Header.js'
+import Footer from './components/Footer.js'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
-import Context from './context';
+import Context from '../src/context/index.js';
 import { useDispatch } from 'react-redux';
-import { setUserDetails } from './store/userSlice';
+import { setUserDetails } from './store/userSlice.js';
 
 const App = () => {
   

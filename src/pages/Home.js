@@ -1,8 +1,8 @@
 import React from 'react'
-import CategoryList from '../components/CategoryList'
-import BannerProduct from '../components/BannerProduct'
-import HorizontalCardProduct from '../components/HorizontalCardProduct'
-import VerticalCardProduct from '../components/VerticalCardProduct'
+import CategoryList from '../components/CategoryList.js'
+import BannerProduct from '../components/BannerProduct.js'
+import HorizontalCardProduct from '../components/HorizontalCardProduct.js'
+import VerticalCardProduct from '../components/VerticalCardProduct.js'
 
 const Home = () => {
   return (

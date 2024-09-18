@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { CgClose } from "react-icons/cg";
 import productCategory from '../Helper/productCategory';
 import { FaCloudUploadAlt } from "react-icons/fa";
-import uploadImage from '../Helper/UploadImage';
-import DisplayImage from './DisplayImage';
+import uploadImage from '../Helper/UploadImage.js';
+import DisplayImage from '../components/DisplayImage.js';
 import { MdDelete } from "react-icons/md";
 import { toast } from 'react-toastify'
 import axios from 'axios'

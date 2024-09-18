@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Context from '../context'
-import displayINRCurrency from '../Helper/displayCurrency'
+import Context from '../context/index.js'
+import displayINRCurrency from '../Helper/displayCurrency.js'
 import { MdDelete } from "react-icons/md";
 import axios from 'axios';  // Import axios
 

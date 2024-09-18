@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import VerticalCard from '../components/VerticalCard'
+import VerticalCard from '../components/VerticalCard.js'
 import axios from 'axios'
 
 const SearchProduct = () => {

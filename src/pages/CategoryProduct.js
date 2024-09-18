@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import productCategory from '../Helper/productCategory'
+import productCategory from '../Helper/productCategory.js'
 import axios from 'axios'
-import VerticalCard from '../components/VerticalCard'
+import VerticalCard from '../components/VerticalCard.js'
 
 
 const CategoryProduct = () => {

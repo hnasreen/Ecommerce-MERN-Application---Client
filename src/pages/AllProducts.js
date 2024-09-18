@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import UploadProduct from '../components/UploadProduct'
+import UploadProduct from '../components/UploadProduct.js'
 import axios from 'axios'
-import AdminProductCard from '../components/AdminProductCard'
+import AdminProductCard from '../components/AdminProductCard.js'
 
 const AllProducts = () => {
   const [openUploadProduct,setOpenUploadProduct] = useState(false)

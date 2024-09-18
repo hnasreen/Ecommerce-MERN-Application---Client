@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import fetchCategoryWiseProduct from '../Helper/fetchCategoryWiseProduct';
-import displayINRCurrency from '../Helper/displayCurrency';
+import fetchCategoryWiseProduct from '../Helper/fetchCategoryWiseProduct.js';
+import displayINRCurrency from '../Helper/displayCurrency.js';
 import { Link } from 'react-router-dom';
-import addToCart from '../Helper/AddToCart';
-import Context from '../context';
-import ScrollTop from '../Helper/ScrollTop';
+import addToCart from '../Helper/AddToCart.js';
+import Context from '../context/index.js';
+import ScrollTop from '../Helper/ScrollTop.js';
 
 const CategroyWiseProductDisplay = ({ category, heading }) => {
     const [data, setData] = useState([]);

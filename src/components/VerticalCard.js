@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import ScrollTop from '../Helper/ScrollTop';
-import displayINRCurrency from '../Helper/displayCurrency';
-import Context from '../context/index';
-import addToCart from '../Helper/AddToCart';
+import ScrollTop from '../Helper/ScrollTop.js';
+import displayINRCurrency from '../Helper/displayCurrency.js';
+import Context from '../context/index.js';
+import addToCart from '../Helper/AddToCart.js';
 import { Link } from 'react-router-dom';
 
 const VerticalCard = ({ loading, data = [] }) => {

@@ -2,14 +2,14 @@ import React, { useContext, useState } from 'react'
 import { NavLink, Link, useNavigate,useLocation } from 'react-router-dom'
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
-import './Header.css'
+import '../components/Header.css'
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';  // Import axios
 import { toast } from 'react-toastify';
-import { setUserDetails } from '../store/userSlice';
-import ROLE from '../common/Role';
+import { setUserDetails } from '../store/userSlice.js';
+import ROLE from '../common/Role.js';
 import { FaRegCircleUser } from 'react-icons/fa6';
-import Context from '../context';
+import Context from '../context/index.js';
 
 
 const Header = () => {

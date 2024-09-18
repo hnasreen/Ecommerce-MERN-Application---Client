@@ -3,9 +3,8 @@ import axios from 'axios';  // Import axios
 import loginIcons from '../assest/signin.gif';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
-// import SummaryApi from '../common';
 import { toast } from 'react-toastify';
-import Context from '../context';
+import Context from '../context/index.js';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ROLE from '../common/Role';
+import ROLE from '../common/Role.js';
 import { IoMdClose } from "react-icons/io";
 import axios from 'axios';  // Import axios
 import { toast } from 'react-toastify';

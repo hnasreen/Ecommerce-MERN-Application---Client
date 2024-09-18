@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { Link, Outlet, useNavigate, NavLink } from 'react-router-dom';
-import ROLE from '../common/Role';
+import ROLE from '../common/Role.js';
 import { FaUserCircle } from "react-icons/fa";
 
 const AdminPanel = () => {
