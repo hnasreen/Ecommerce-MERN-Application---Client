@@ -14,9 +14,25 @@ const App = () => {
   const dispatch = useDispatch()
   const [cartProductCount,setCartProductCount] = useState(0)
   const[token,setToken] =useState(localStorage.getItem('token'))
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setToken(localStorage.getItem('token'));
+    };
+    
+    // Add event listener for localStorage changes
+    window.addEventListener('storage', handleStorageChange);
+
+    // Clean up event listener when component unmounts
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
   
 
   const fetchUserDetails = async()=>{
+
+    console.log("token in front enf",token)
     
     const res = await axios.get('https://ecommerce-mern-application-server.onrender.com/api/user-details',
       {
@@ -43,13 +59,12 @@ const fetchUserAddToCart = async()=>{
 }
 
 
-  useEffect(()=>{
-    /**user Details */
-    fetchUserDetails()
-    /**user Details cart product */ 
-    fetchUserAddToCart()
-
-  },[])
+useEffect(() => {
+  if (token) {
+    fetchUserDetails();
+    fetchUserAddToCart();
+  }
+}, [token]); 
 
   return (
     <>
