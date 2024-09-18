@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-// import loginIcons from '../assets/signin.gif';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import axios from 'axios'
-// import imageTobase64 from '../helpers/imageTobase64';
-// import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 
 const SignUp = () => {
@@ -32,7 +29,7 @@ const SignUp = () => {
         e.preventDefault();
           if (data.password === data.confirmPassword) {
             try {
-              const res = await axios.post('http://localhost:8080/api/register', 
+              const res = await axios.post('https://ecommerce-mern-application-server.onrender.com/api/register', 
                 {
                 name: data.name,
                 email: data.email,

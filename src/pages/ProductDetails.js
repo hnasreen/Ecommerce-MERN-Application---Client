@@ -26,7 +26,7 @@ const ProductDetails = () => {
 
   const fetchProductDetails = async () => {
     setLoading(true)
-    const res = await axios.post('http://localhost:8080/api/product-details', { productId: params?.id }, {
+    const res = await axios.post('https://ecommerce-mern-application-server.onrender.com/api/product-details', { productId: params?.id }, {
       header: { "content-type": "application/json" },
       withCredentials: true
     })

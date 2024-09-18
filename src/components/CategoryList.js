@@ -10,7 +10,7 @@ const CategoryList = () => {
 
     const fetchCategoryProduct = async () => {
         setLoading(true)
-        const res = await axios.get("http://localhost:8080/api/get-categoryProduct", {
+        const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/get-categoryProduct", {
             header: { "content-type": "application/json" },
             withCredentials: true
         })

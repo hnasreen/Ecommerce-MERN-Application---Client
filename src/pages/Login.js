@@ -32,7 +32,7 @@ const Login = () => {
 
         try {
             // Using axios for the API call
-            const res = await axios.post('http://localhost:8080/api/login', 
+            const res = await axios.post('https://ecommerce-mern-application-server.onrender.com/api/login', 
                 {
                 email: data.email,
                 password: data.password

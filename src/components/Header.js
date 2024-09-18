@@ -26,7 +26,7 @@ const Header = () => {
   const [search,setSearch] = useState(searchQuery)
 
   const handleLogout = async () => {
-    const res = await axios.get("http://localhost:8080/api/logout", {
+    const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/logout", {
       header: { "content-type": "application/json" },
       withCredentials: true
     })

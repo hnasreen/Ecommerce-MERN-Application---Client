@@ -72,7 +72,7 @@ const UploadProduct = ({
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const res = await axios.post("http://localhost:8080/api/upload-product", data, {
+        const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/upload-product", data, {
             header: { "content-type": "application/json" },
             withCredentials: true
         })

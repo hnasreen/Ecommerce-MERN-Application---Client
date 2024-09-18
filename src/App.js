@@ -15,7 +15,7 @@ const App = () => {
   const [cartProductCount,setCartProductCount] = useState(0)
 
   const fetchUserDetails = async()=>{
-    const res = await axios.get('http://localhost:8080/api/user-details',
+    const res = await axios.get('https://ecommerce-mern-application-server.onrender.com/api/user-details',
       {
         header:{"content-type":"application/json"},
       withCredentials:true})
@@ -28,7 +28,7 @@ const App = () => {
 
 const fetchUserAddToCart = async()=>{
   
-  const res = await axios.get('http://localhost:8080/api/countAddToCartProduct',
+  const res = await axios.get('https://ecommerce-mern-application-server.onrender.com/api/countAddToCartProduct',
     {
       header:{"content-type":"application/json"},
     withCredentials:true})

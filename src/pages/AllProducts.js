@@ -9,7 +9,7 @@ const AllProducts = () => {
 
   const fetchAllProduct = async() =>{
 
-    const res = await axios.get("http://localhost:8080/api/get-product", {
+    const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/get-product", {
       header: { "content-type": "application/json" },
       withCredentials: true
     })

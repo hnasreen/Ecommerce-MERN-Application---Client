@@ -6,7 +6,7 @@ const addToCart = async(e,id) =>{
     e?.preventDefault()
 
 
-    const res = await axios.post("http://localhost:8080/api/addtocart", { productId : id }, {
+    const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/addtocart", { productId : id }, {
         header: { "content-type": "application/json" },
         withCredentials: true
     })

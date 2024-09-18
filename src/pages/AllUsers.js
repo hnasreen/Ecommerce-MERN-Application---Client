@@ -17,7 +17,7 @@ const AllUsers = () => {
     })
 
     const fetchAllUsers = async() =>{
-        const res = await axios.get("http://localhost:8080/api/all-users", {
+        const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/all-users", {
             header: { "content-type": "application/json" },
             withCredentials: true
           })

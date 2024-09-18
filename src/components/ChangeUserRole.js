@@ -20,7 +20,7 @@ const ChangeUserRole = ({
     }
 
     const updateUserRole = async () => {
-        const res = await axios.post("http://localhost:8080/api/update-user", { userId: userId, role: userRole }, {
+        const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/update-user", { userId: userId, role: userRole }, {
             headers: { "content-type": "application/json" },
             withCredentials: true
         });

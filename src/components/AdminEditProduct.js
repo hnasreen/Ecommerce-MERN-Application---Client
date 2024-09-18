@@ -71,7 +71,7 @@ const AdminEditProduct = ({
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const res = await axios.post("http://localhost:8080/api/update-product", data, {
+        const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/update-product", data, {
             header: { "content-type": "application/json" },
             withCredentials: true
         })

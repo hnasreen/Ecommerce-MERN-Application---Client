@@ -26,7 +26,7 @@ const CategoryProduct = () => {
   const fetchData = async () => {
 
 
-    const res = await axios.post("http://localhost:8080/api/filter-product", { category: filterCategoryList }, {
+    const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/filter-product", { category: filterCategoryList }, {
       header: { "content-type": "application/json" },
       withCredentials: true
     })

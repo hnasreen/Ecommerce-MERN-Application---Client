@@ -11,7 +11,7 @@ const Cart = () => {
     const loadingCart = new Array(4).fill(null)
 
     const fetchData = async () => {
-        const res = await axios.get("http://localhost:8080/api/view-card-product", {
+        const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/view-card-product", {
             header: { "content-type": "application/json" },
             withCredentials: true
         })
@@ -32,7 +32,7 @@ const Cart = () => {
     }, [])
 
     const increaseQty = async (id, qty) => {
-        const res = await axios.post('http://localhost:8080/api/update-cart-product',
+        const res = await axios.post('https://ecommerce-mern-application-server.onrender.com/api/update-cart-product',
             {
                 _id: id,
                 quantity: qty + 1
@@ -49,7 +49,7 @@ const Cart = () => {
 
     const decraseQty = async (id, qty) => {
         if (qty >= 2) {
-            const res = await axios.post('http://localhost:8080/api/update-cart-product',
+            const res = await axios.post('https://ecommerce-mern-application-server.onrender.com/api/update-cart-product',
                 {
                     _id: id,
                     quantity: qty - 1
@@ -66,7 +66,7 @@ const Cart = () => {
     }
 
     const deleteCartProduct = async (id) => {
-        const res = await axios.post('http://localhost:8080/api/delete-cart-product',
+        const res = await axios.post('https://ecommerce-mern-application-server.onrender.com/api/delete-cart-product',
             {
                 _id: id
             },
