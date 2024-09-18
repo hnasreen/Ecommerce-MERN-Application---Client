@@ -18,7 +18,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const [menuDisplay, setMenuDisplay] = useState(false)
   const context = useContext(Context)
-  const {token} = useContext(Context)
+  const {setToken} = useContext(Context)
   const navigate = useNavigate()
 
   const searchInput = useLocation()
@@ -27,21 +27,26 @@ const Header = () => {
   const [search,setSearch] = useState(searchQuery)
 
   const handleLogout = async () => {
-    const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/logout", {
-      headers: { "content-type": "application/json" , Authorization: `Bearer ${token}`},
-      withCredentials: true
-    })
-
-    console.log("Header Logout function:", res)
-
-    if (res.data.success) {
-      toast.success(res.data.message)
-      dispatch(setUserDetails(null))
-      navigate("/")
-    }
-
-    if (res.data.error) {
-      toast.error(res.data.message)
+  
+    try {
+      // Clear token from local storage
+      localStorage.removeItem('token');
+  
+      // Reset token in context
+      setToken(null);
+  
+      // Dispatch user details as null
+      dispatch(setUserDetails(null));
+  
+      // Navigate to home or login page
+      navigate("/");
+  
+      // Show success toast
+      toast.success("Logged out successfully");
+  
+    } catch (error) {
+      console.error("Error during logout:", error);
+      toast.error("An error occurred while logging out.");
     }
 
   }
