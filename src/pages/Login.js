@@ -45,7 +45,7 @@ const Login = () => {
                 toast.success(res.data.message);
                 navigate('/');
                 console.log(res.data)
-                localStorage.setItem("token",res.data)
+                localStorage.setItem("token",res.data.data)
                 fetchUserDetails();
                 fetchUserAddToCart();
             } else {
