@@ -34,7 +34,7 @@ const Header = () => {
   
       // Reset token in context
       setToken(null);
-  
+      
       // Dispatch user details as null
       dispatch(setUserDetails(null));
   

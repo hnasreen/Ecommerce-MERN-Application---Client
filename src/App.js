@@ -72,7 +72,8 @@ useEffect(() => {
           fetchUserDetails, // user detail fetch 
           cartProductCount, // current user add to cart product count,
           fetchUserAddToCart,
-          token
+          token,
+          setToken
       }}>
       <ToastContainer
         position='top-center'
