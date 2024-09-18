@@ -17,6 +17,7 @@ const Header = () => {
   // console.log("Header Component - User data: ",user.data.name)
   const dispatch = useDispatch()
   const [menuDisplay, setMenuDisplay] = useState(false)
+  const context = useContext(Context)
   const {token} = useContext(Context)
   const navigate = useNavigate()
 

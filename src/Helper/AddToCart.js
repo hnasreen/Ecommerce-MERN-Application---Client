@@ -1,12 +1,12 @@
 import { toast } from 'react-toastify'
 import axios from 'axios'
-import { useContext } from 'react'
-import Context from '../context/index.js'
+// import { useContext } from 'react'
+// import Context from '../context/index.js'
 
-const addToCart = async(e,id) =>{
+const addToCart = async(e,id,token) =>{
     e?.stopPropagation()
     e?.preventDefault()
-    const {token} = useContext(Context)
+    // const {token} = useContext(Context)
 
     const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/addtocart", { productId : id }, {
         header: { "content-type": "application/json" , authorization:`Bearer ${token}`},

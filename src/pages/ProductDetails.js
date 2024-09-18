@@ -44,12 +44,12 @@ const ProductDetails = () => {
   }
 
   const handleAddToCart = async (e, id) => {
-    await addToCart(e, id)
+    await addToCart(e, id,token)
     fetchUserAddToCart()
   }
 
   const handleBuyProduct = async (e, id) => {
-    await addToCart(e, id)
+    await addToCart(e, id,token)
     fetchUserAddToCart()
     navigate("/cart")
   }
