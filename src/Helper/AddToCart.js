@@ -9,7 +9,7 @@ const addToCart = async(e,id,token) =>{
     // const {token} = useContext(Context)
 
     const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/addtocart", { productId : id }, {
-        header: { "content-type": "application/json" , authorization:`Bearer ${token}`},
+        headers: { "content-type": "application/json" , Authorization:`Bearer ${token}`},
         withCredentials: true
     })
 

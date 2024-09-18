@@ -20,7 +20,7 @@ const App = () => {
     
     const res = await axios.get('https://ecommerce-mern-application-server.onrender.com/api/user-details',
       {
-        header:{"content-type":"application/json",authorization:`Bearer ${token}`},
+        headers:{"content-type":"application/json",Authorization:`Bearer ${token}`},
         
       withCredentials:true})
 
@@ -34,7 +34,7 @@ const fetchUserAddToCart = async()=>{
   
   const res = await axios.get('https://ecommerce-mern-application-server.onrender.com/api/countAddToCartProduct',
     {
-      header:{"content-type":"application/json",authorization:`Bearer ${token}`},
+      headers:{"content-type":"application/json",Authorization:`Bearer ${token}`},
     withCredentials:true})
 
   setCartProductCount(res?.data?.data?.count)

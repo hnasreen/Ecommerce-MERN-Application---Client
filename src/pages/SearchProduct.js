@@ -15,7 +15,7 @@ const SearchProduct = () => {
     const fetchProduct = async()=>{
         setLoading(true)
         const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/search"+query.search, {
-            header: { "content-type": "application/json",authorization:`Bearer ${token}` },
+            headers: { "content-type": "application/json",Authorization:`Bearer ${token}` },
             withCredentials: true
           })
         setLoading(false)

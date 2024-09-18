@@ -13,7 +13,7 @@ const AllProducts = () => {
   const fetchAllProduct = async() =>{
 
     const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/get-product", {
-      header: { "content-type": "application/json" ,authorization: `Bearer ${token}`},
+      headers: { "content-type": "application/json" ,Authorization: `Bearer ${token}`},
       withCredentials: true
     })
 

@@ -5,7 +5,7 @@ import axios from 'axios'
 const fetchCategoryWiseProduct = async(category,token)=>{
     // const {token}=useContext(Context)
     const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/category-product", {category : category}, {
-        header: { "content-type": "application/json" ,authorization:`Bearer ${token}`},
+        headers: { "content-type": "application/json" ,Authorization:`Bearer ${token}`},
         withCredentials: true
     })
 

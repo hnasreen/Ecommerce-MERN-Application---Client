@@ -29,7 +29,7 @@ const CategoryProduct = () => {
 
 
     const res = await axios.post("https://ecommerce-mern-application-server.onrender.com/api/filter-product", { category: filterCategoryList }, {
-      header: { "content-type": "application/json" ,authorization:`Bearer ${token}`},
+      headers: { "content-type": "application/json" ,Authorization:`Bearer ${token}`},
       withCredentials: true
     })
 

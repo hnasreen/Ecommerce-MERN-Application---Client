@@ -13,7 +13,7 @@ const Cart = () => {
 
     const fetchData = async () => {
         const res = await axios.get("https://ecommerce-mern-application-server.onrender.com/api/view-card-product", {
-            header: { "content-type": "application/json" ,authorization:`Bearer ${token}`},
+            headers: { "content-type": "application/json" ,Authorization:`Bearer ${token}`},
             withCredentials: true
         })
 
@@ -39,7 +39,7 @@ const Cart = () => {
                 quantity: qty + 1
             },
             {
-                header: { "content-type": "application/json" },
+                headers: { "content-type": "application/json",Authorization:`Bearer ${token}` },
                 withCredentials: true
             })
 
@@ -56,7 +56,7 @@ const Cart = () => {
                     quantity: qty - 1
                 },
                 {
-                    header: { "content-type": "application/json" },
+                    headers: { "content-type": "application/json" ,Authorization:`Bearer ${token}`},
                     withCredentials: true
                 })
 
@@ -72,7 +72,7 @@ const Cart = () => {
                 _id: id
             },
             {
-                header: { "content-type": "application/json" },
+                headers: { "content-type": "application/json" ,Authorization:`Bearer ${token}`},
                 withCredentials: true
             })
 
