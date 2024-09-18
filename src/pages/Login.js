@@ -13,7 +13,7 @@ const Login = () => {
         password: ""
     });
     const navigate = useNavigate();
-    const {fetchUserDetails,fetchUserAddToCart} = useContext(Context);
+    const {setToken, fetchUserDetails,fetchUserAddToCart} = useContext(Context);
 
     const handleOnChange = (e) => {
         const { name, value } = e.target;
@@ -36,18 +36,19 @@ const Login = () => {
                 email: data.email,
                 password: data.password
                 },
-                {header:{"content-type":"application/json"},
+                {headers:{"content-type":"application/json"},
                 withCredentials:true})
 
             
 
             if (res.data.success) {
                 toast.success(res.data.message);
-                navigate('/');
-                console.log(res.data.data)
+                // console.log(res.data.data)
                 localStorage.setItem("token",res.data.data)
+                setToken(res.data.data);
                 fetchUserDetails();
                 fetchUserAddToCart();
+                navigate('/');
             } else {
                 toast.error(res.data.message);
             }
